@@ -1,0 +1,19 @@
+<h1>LU-Tube</h1>
+<p>The video-sharing site for Linux Users</p>
+
+<p class="error-message">{{.ErrorMessage}}</p>
+
+<h2>Upload a video</h2>
+
+<form id="video-upload-form" enctype="multipart/form-data" action="upload/" method="post">
+  <input type="file" name="video-file" accept=".mp4"/>
+  Title <input type="text" name="title" />
+  <input type="submit" value="upload" />
+</form>
+
+<h2>Our videos</h2>
+<ul>
+  {{range $a := .VideoList}}
+  <li><a href="/watch/{{$a.Id}}">{{$a.Title}}</a></li>
+  {{end}}
+</ul>
